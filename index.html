@@ -20,10 +20,11 @@
                 <span>ClinicFlow AI</span>
             </div>
             <h1 class="booking-title">Book your appointment now</h1>
-            <p class="booking-subtitle">So our team can reach out to you on time</p>
+            <p class="booking-subtitle" id="booking-header-sub">So our team can reach out to you on time</p>
         </header>
 
         <form id="booking-form" class="booking-form" novalidate onsubmit="return false;">
+            <input type="hidden" id="clinic_id" name="clinic_id" value="" aria-hidden="true">
             <div id="form-message" class="booking-message" role="alert" aria-live="polite" hidden></div>
             <div class="booking-grid">
                 <div class="booking-field">
@@ -35,6 +36,7 @@
                         class="booking-input"
                         placeholder="eg: John Doe"
                         required
+                        maxlength="120"
                         autocomplete="name"
                     >
                     <span class="booking-error" id="error-name" aria-live="polite"></span>
@@ -53,27 +55,17 @@
                 </div>
 
                 <div class="booking-field">
-                    <label for="email" class="booking-label">Email</label>
-                    <input
-                        type="email"
-                        id="email"
-                        name="email"
-                        class="booking-input"
-                        placeholder="eg: john@email.com"
-                        autocomplete="email"
-                    >
-                    <span class="booking-error" id="error-email" aria-live="polite"></span>
-                </div>
-
-                <div class="booking-field">
-                    <label for="doctor_name" class="booking-label">Preferred Doctor</label>
+                    <label for="doctor_name" class="booking-label">Preferred Doctor <span class="booking-required">*</span></label>
                     <select
                         id="doctor_name"
                         name="doctor_name"
                         class="booking-input"
+                        required
+                        aria-required="true"
                     >
-                        <option value="">Select doctor (optional)</option>
+                        <option value="">Select a doctor</option>
                     </select>
+                    <span class="booking-error" id="error-doctor" aria-live="polite"></span>
                 </div>
 
                 <div class="booking-field booking-field--full">
@@ -106,13 +98,16 @@
 
                 <div class="booking-field booking-field--full">
                     <label for="preferred_time" class="booking-label">Preferred Time <span class="booking-required">*</span></label>
-                    <input
-                        type="time"
+                    <select
                         id="preferred_time"
                         name="preferred_time"
                         class="booking-input"
                         required
+                        aria-describedby="slot-help"
                     >
+                        <option value="">Select a date first</option>
+                    </select>
+                    <span class="booking-help" id="slot-help">Times are in 15-minute slots within clinic hours.</span>
                     <span class="booking-error" id="error-time" aria-live="polite"></span>
                 </div>
 

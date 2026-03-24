@@ -252,6 +252,14 @@ select.booking-input {
   min-height: 1.25em;
 }
 
+.booking-help {
+  display: block;
+  font-size: 0.75rem;
+  color: var(--booking-text-muted);
+  margin-top: 0.35rem;
+  line-height: 1.4;
+}
+
 /* ===== Form Message ===== */
 .booking-message {
   display: block;
@@ -270,6 +278,12 @@ select.booking-input {
   background: linear-gradient(135deg, #fef2f2 0%, #fee2e2 100%);
   color: var(--booking-error);
   border: 1px solid #fecaca;
+}
+
+.booking-message.booking-message--info {
+  background: linear-gradient(135deg, #f0fdfa 0%, #e0f2fe 100%);
+  color: var(--booking-accent-dark);
+  border: 1px solid #99f6e4;
 }
 
 /* ===== Actions & Button ===== */
